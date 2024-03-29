@@ -1,7 +1,7 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import EditableInput from "../../Partials/EditableInput";
+import EditableInput from "../../partials/EditableInput";
 
 function AccPrivacy() {
   const [inputValue, setInputValue] = useState("Initial Value");
@@ -29,6 +29,11 @@ function AccPrivacy() {
             color="#454545"
             borderBottom="3px solid #E0E0E0"
             fontWeight="700"
+            _hover={{
+              color: "#03559E",
+              borderBottom: "3px solid #03559E",
+              transition: ".3s ease-in-out",
+            }}
           >
             Запросы на вход
           </Text>
@@ -40,6 +45,11 @@ function AccPrivacy() {
             pe="20px"
             color="#454545"
             borderBottom="3px solid #E0E0E0"
+            _hover={{
+              color: "#03559E",
+              borderBottom: "3px solid #03559E",
+              transition: ".3s ease-in-out",
+            }}
           >
             Совместный доступ
           </Text>

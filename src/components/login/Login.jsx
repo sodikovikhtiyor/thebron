@@ -9,10 +9,10 @@ import {
   Input,
   Text,
 } from "@chakra-ui/react";
-import envelope from "../../assets/icons/envelope.png";
-import google from "../../assets/icons/google.png";
-import facebook from "../../assets/icons/facebook.png";
-import apple from "../../assets/icons/apple.png";
+import email from "../../assets/thebron-icons/Socials/email.png";
+import facebook from "../../assets/thebron-icons/Socials/facebook.png";
+import google from "../../assets/thebron-icons/Socials/google.png";
+import apple from "../../assets/thebron-icons/Socials/apple.png";
 import Confirm from "./Confirm";
 const Login = ({ isOpen, onClose }) => {
   const [isModalOpen, setIsModalOpen] = useState(isOpen);
@@ -39,7 +39,7 @@ const Login = ({ isOpen, onClose }) => {
     setIsModalOpen(false);
     onClose();
   };
-  
+
   const handleKeyDown = (event) => {
     if (event.key === "Escape") {
       handleClose();
@@ -144,7 +144,7 @@ const Login = ({ isOpen, onClose }) => {
                   borderRadius="8px"
                   bg="#fff"
                 >
-                  <Image src={envelope} />
+                  <Image src={email} />
                   <Text fontWeight="700">C помощью эл почты</Text>
                 </Flex>
                 <Flex

@@ -1,0 +1,12 @@
+.nextButtonClassName:focus {
+  border: none;
+}
+.pagingDotsClassName {
+  padding: 2px;
+}
+.pagingDotsClassName:focus,
+.pagingDotsClassName:hover {
+  outline: none;
+  padding: 3px;
+  
+}

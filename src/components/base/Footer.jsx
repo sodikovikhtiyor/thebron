@@ -1,9 +1,9 @@
 import { Box, Container, Flex, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import LanguageIcon from "@mui/icons-material/Language";
-import twitter from "../assets/thebron-icons/Feather Icons/twitter.png";
-import facebook from "../assets/thebron-icons/Feather Icons/facebook.png";
-import instagram from "../assets/thebron-icons/Feather Icons/instagram.png";
+import twitter from "../../assets/thebron-icons/Feather Icons/twitter.png";
+import facebook from "../../assets/thebron-icons/Feather Icons/facebook.png";
+import instagram from "../../assets/thebron-icons/Feather Icons/instagram.png";
 import { Link } from "react-router-dom";
 function Footer() {
   return (

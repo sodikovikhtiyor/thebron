@@ -11,7 +11,7 @@ function Filter() {
       boxShadow="0px 8px 16px 0px #00000014"
       justifyContent="space-between"
       alignItems="center"
-      w="900px"
+      maxW="700px"
       mx="auto"
       my="4rem"
       color="black"
@@ -22,7 +22,7 @@ function Filter() {
           Поиск направлений
         </Text>
       </Box>
-      <Box borderRight="1px solid #ededed" px="2rem" cursor="pointer">
+      {/* <Box borderRight="1px solid #ededed" px="2rem" cursor="pointer">
         <Text>Прибытие</Text>
         <Text color="#C2C2C2" fontWeight="400">
           Поиск направлений
@@ -41,10 +41,10 @@ function Filter() {
             Кто едет
           </Text>
         </Box>
-        <Button borderRadius="50%" h="64px" w="64px" bg="#03559E">
-          <Image src={search} />
-        </Button>
-      </Flex>
+      </Flex> */}
+      <Button borderRadius="50%" h="64px" w="64px" bg="#03559E">
+        <Image src={search} />
+      </Button>
     </Flex>
   );
 }

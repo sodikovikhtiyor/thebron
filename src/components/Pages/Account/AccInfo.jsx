@@ -2,7 +2,7 @@ import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import arrow from "../../../assets/thebron-icons/Phosphor Icons/CaretRight.png";
-import EditableInput from "../../Partials/EditableInput";
+import EditableInput from "../../partials/EditableInput";
 function AccInfo() {
   const [inputValue, setInputValue] = useState("Initial Value");
 

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import logo from "../assets/images/Logo.png";
+import logo from "../../assets/images//Logo.png";
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import LanguageIcon from "@mui/icons-material/Language";
 import MenuIcon from "@mui/icons-material/Menu";
-import Login from "./login/Login";
+import Login from "../login/Login";
 import { NavLink } from "react-router-dom";
 function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,7 +17,7 @@ function Header() {
   };
 
   return (
-    <Flex justifyContent="space-between" py="30px">
+    <Flex flexWrap="wrap" justifyContent="space-between" py="30px">
       <NavLink to="/">
         <img src={logo} alt="logo" width="130px" />
       </NavLink>
@@ -30,7 +30,9 @@ function Header() {
           Login
         </Button> */}
         <Box>
-          <Button onClick={openModal}>Login</Button>
+          <Button onClick={openModal} color={{ base: "red", md: 'blue' }}>
+            Login
+          </Button>
           <Login isOpen={isModalOpen} onClose={closeModal} />
         </Box>
         <Box cursor="pointer">

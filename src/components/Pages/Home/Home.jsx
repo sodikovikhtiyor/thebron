@@ -1,19 +1,25 @@
 import { Container } from "@chakra-ui/react";
 import React from "react";
-import Showcase from "../../login/Showcase";
+import Showcase from "./Showcase";
 import Categories from "./Categories";
-import Filter from "../../Search/Filter";
-import Cards from "../../Cards";
+import Filter from "../../search/Filter";
+import Cards from "../../partials/Cards";
 
 function Home() {
   return (
     <>
-      <Container w="1200px" mx="auto" my="0">
+      <Container
+        // w={{ base: "24px", md: "700px", lg: "900px", xl: "1200px" }}
+        maxW="1200px"
+        mx="auto"
+        my="0"
+        
+      >
         <Showcase />
         <Categories />
       </Container>
       <hr />
-      <Container w="1200px" mx="auto" my="0">
+      <Container w="sm" mx="auto" my="0">
         <Filter />
         <Cards />
       </Container>
