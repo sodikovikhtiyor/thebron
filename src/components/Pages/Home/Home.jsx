@@ -2,7 +2,7 @@ import { Container } from "@chakra-ui/react";
 import React from "react";
 import Showcase from "./Showcase";
 import Categories from "./Categories";
-import Filter from "../../search/Filter";
+// import Filter from "../../search/Filter";
 import Cards from "../../partials/Cards";
 
 function Home() {
@@ -26,7 +26,7 @@ function Home() {
       </Container>
       <hr />
       <Container maxW="1200px" mx="auto" my="0">
-        <Filter />
+        {/* <Filter /> */}
         <Cards />
       </Container>
     </>
