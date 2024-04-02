@@ -9,17 +9,23 @@ function Home() {
   return (
     <>
       <Container
-        // w={{ base: "24px", md: "700px", lg: "900px", xl: "1200px" }}
-        maxW="1200px"
+        maxW={{
+          base: "500px",
+          sm: "600px",
+          md: "750px",
+          lg: "900px",
+          xl: "1200px",
+        }}
+        // maxW={{ base: "1200px" }}
+        // maxW="1200px"
         mx="auto"
         my="0"
-        
       >
         <Showcase />
         <Categories />
       </Container>
       <hr />
-      <Container w="sm" mx="auto" my="0">
+      <Container maxW="1200px" mx="auto" my="0">
         <Filter />
         <Cards />
       </Container>

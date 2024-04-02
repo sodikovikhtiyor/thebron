@@ -24,7 +24,7 @@ const EditableInput = ({
       {isEditing ? (
         <Flex
           justify="space-between"
-          w="950px"
+          w={{ sm: "600px", md: "750px" }}
           py="1rem"
           borderBottom="1px solid #e0e0e0"
         >
@@ -52,7 +52,7 @@ const EditableInput = ({
       ) : (
         <Flex
           justify="space-between"
-          w="950px"
+          w={{ base: "100%", sm: "100%", md: "100%" }}
           borderBottom="1px solid #e0e0e0"
           py="1rem"
         >
@@ -74,7 +74,7 @@ const EditableInput = ({
             fontWeight="700"
             ml={2}
             onClick={() => setIsEditing(true)}
-            textDecoration="underline"
+            textDecoration="none"
             cursor="pointer"
           >
             {btnName}

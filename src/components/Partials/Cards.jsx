@@ -10,7 +10,10 @@ function Cards() {
       <Text fontWeight="700" fontSize="28px" mb="1rem" color="#000">
         Дачные дома
       </Text>
-      <Flex flexWrap="wrap" justifyContent="space-between">
+      <Flex
+        flexWrap="wrap"
+        justifyContent={{ base: "center", md: "space-between" }}
+      >
         <Card
           img={img1}
           name="Отель Узбекистан"
@@ -60,10 +63,13 @@ function Cards() {
           <Image src={map} />
         </Button>
       </Flex>
-      <Text fontWeight="700" fontSize="28px" mb="1rem" color="#000">
+      <Text fontWeight="700" fontSize="28px" mb="1rem" color="#000" mt="1rem">
         Санатории
       </Text>
-      <Flex flexWrap="wrap" flexWrap="wrap" justifyContent="space-between">
+      <Flex
+        flexWrap="wrap"
+        justifyContent={{ base: "center", md: "space-between" }}
+      >
         <Card
           img={img1}
           name="Отель Узбекистан"
@@ -100,7 +106,10 @@ function Cards() {
       <Text fontWeight="700" fontSize="28px" mb="1rem" color="#000">
         Чайханы
       </Text>
-      <Flex flexWrap="wrap" flexWrap="wrap" justifyContent="space-between">
+      <Flex
+        flexWrap="wrap"
+        justifyContent={{ base: "center", md: "space-between" }}
+      >
         <Card
           img={img1}
           name="Отель Узбекистан"
@@ -146,10 +155,10 @@ function Cards() {
           Показать больше
         </Button>
       </Flex>
-      <Text fontWeight="700" fontSize="28px" mb="1rem" color="#000">
+      <Text fontWeight="700" fontSize="28px" mt='1.5rem' mb="1rem" color="#000">
         Акции
       </Text>
-      <Flex flexWrap="wrap" justifyContent="space-between">
+      <Flex flexWrap="wrap" justifyContent={{ base: "center", md: "space-between" }}>
         <Card
           img={img1}
           name="Отель Узбекистан"

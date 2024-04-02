@@ -104,8 +104,8 @@ const Login = ({ isOpen, onClose }) => {
                     placeholder="Номер телефона"
                     type="tel"
                     size="lg"
-                    py="16px"
                     w="100%"
+                    py="16px"
                     px="28.8px"
                     border="1px solid #C2C2C2"
                     borderBottomRadius="10px"
@@ -143,6 +143,8 @@ const Login = ({ isOpen, onClose }) => {
                   border="1px solid #0A0A0A"
                   borderRadius="8px"
                   bg="#fff"
+                   py="10px"
+                    px="28.8px"
                 >
                   <Image src={email} />
                   <Text fontWeight="700">C помощью эл почты</Text>
@@ -155,6 +157,8 @@ const Login = ({ isOpen, onClose }) => {
                   border="1px solid #0A0A0A"
                   borderRadius="8px"
                   bg="#fff"
+                   py="10px"
+                    px="28.8px"
                 >
                   <Image src={google} />
                   <Text fontWeight="700">C помощью эл почты</Text>
@@ -167,6 +171,8 @@ const Login = ({ isOpen, onClose }) => {
                   border="1px solid #0A0A0A"
                   borderRadius="8px"
                   bg="#fff"
+                   py="10px"
+                    px="28.8px"
                 >
                   <Image src={facebook} />
                   <Text fontWeight="700">C помощью эл почты</Text>
@@ -179,6 +185,8 @@ const Login = ({ isOpen, onClose }) => {
                   border="1px solid #0A0A0A"
                   borderRadius="8px"
                   bg="#fff"
+                   py="10px"
+                    px="28.8px"
                 >
                   <Image src={apple} />
                   <Text fontWeight="700">C помощью эл почты</Text>

@@ -6,9 +6,9 @@ import AccCardImg from "../../../assets/images/AccCard.png";
 
 function Account() {
   return (
-    <Box h="70vh">
+    <Box>
       <Heading>Аккаунт</Heading>
-      <Flex flexDir="column" gap="4rem" mt="10px">
+      <Flex flexDir="column" gap="4rem" mt="10px" flexWrap="wrap">
         <Text>
           <b>Faxriddin Mulatov</b>, workmulatov@gmail.com
           <NavLink to="/account/info" style={{ textDecoration: "underline" }}>
@@ -17,7 +17,7 @@ function Account() {
             </Text>
           </NavLink>
         </Text>
-        <Flex justify="space-between">
+        <Flex justify="space-between" flexWrap="wrap" gap="20px">
           <NavLink to="/account/info">
             <AccCard
               icon={AccCardImg}

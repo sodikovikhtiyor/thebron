@@ -12,20 +12,30 @@ import Footer from "./components/base/Footer";
 function App() {
   return (
     <>
-        <Container maxW="1200px" mx="auto" my="0">
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="account">
-              <Route index path="in" element={<Account />} />
-              <Route path="info" element={<AccInfo />} />
-              <Route path="payment" element={<AccPayment />} />
-              <Route path="privacy" element={<AccPrivacy />} />
-            </Route>
-            <Route path="*" element={<NoMatch />} />
-          </Routes>
-        </Container>
+      <Container
+        maxW={{
+          base: "500px",
+          sm: "600px",
+          md: "750px",
+          lg: "900px",
+          xl: "1200px",
+        }}
+        mx="auto"
+        my="0"
+      >
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="account">
+            <Route index path="in" element={<Account />} />
+            <Route path="info" element={<AccInfo />} />
+            <Route path="payment" element={<AccPayment />} />
+            <Route path="privacy" element={<AccPrivacy />} />
+          </Route>
+          <Route path="*" element={<NoMatch />} />
+        </Routes>
         <Footer />
+      </Container>
     </>
   );
   // return (

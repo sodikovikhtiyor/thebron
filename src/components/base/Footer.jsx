@@ -15,30 +15,44 @@ function Footer() {
       borderTop="1px solid #A29F9F"
       mx="auto"
       bg="#F7F7F7"
+      flexWrap="wrap"
       // bottom="0"
       // w="100%"
       // pos="static"
     >
-      <Flex gap="10px" fontSize="18px" fontWeight="400" justifyContent="start">
+      <Flex
+        gap="10px"
+        fontSize="18px"
+        fontWeight="400"
+        justifyContent={{ base: "center", md: "space-between" }}
+        flexWrap="wrap"
+      >
         <Text>2024, thebron</Text>
         <Text>Конфиденцальность</Text>
         <Text>Условия</Text>
         <Text>Реквезиты</Text>
       </Flex>
-      <Flex justify="space-between" w="250px">
-        <Flex align="center" gap="10px" cursor="pointer">
+      <Flex
+        justify="space-between"
+        w={{ base: "100%", md: "250px" }}
+        flexWrap="wrap"
+        mt={{ base: "15px", md: "0" }}
+      >
+        <Flex align="center" gap="10px" cursor="pointer" flexWrap="wrap">
           <LanguageIcon />
           <Text>Русский(ru)</Text>
         </Flex>
-        <Link to="https://twitter.com/thebron">
-          <Image src={twitter} color="#000" cursor="pointer" />
-        </Link>
-        <Link to="https://www.facebook.com/thebron">
-          <Image src={facebook} cursor="pointer" />
-        </Link>
-        <Link to="https://www.instagram.com/thebron">
-          <Image src={instagram} cursor="pointer" />
-        </Link>
+        <Flex gap='20px'>
+          <Link to="https://twitter.com/thebron">
+            <Image src={twitter} color="#000" cursor="pointer" />
+          </Link>
+          <Link to="https://www.facebook.com/thebron">
+            <Image src={facebook} cursor="pointer" />
+          </Link>
+          <Link to="https://www.instagram.com/thebron">
+            <Image src={instagram} cursor="pointer" />
+          </Link>
+        </Flex>
       </Flex>
     </Flex>
   );
