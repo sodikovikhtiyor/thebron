@@ -64,7 +64,6 @@ function Categories() {
     slidesNum = 1.5;
   }
 
-  console.log("width is " + viewportWidth + " slides num is " + slidesNum);
   const params = {
     slidesToShow: slidesNum,
     defaultControlsConfig: {

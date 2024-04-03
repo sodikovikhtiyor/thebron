@@ -2,8 +2,7 @@ import { Container } from "@chakra-ui/react";
 import React from "react";
 import Showcase from "./Showcase";
 import Categories from "./Categories";
-
-import Cards from "../../partials/Cards";
+import Cards from "../../partials/Cards.jsx";
 
 function Home() {
   return (
