@@ -2,7 +2,7 @@ import { Container } from "@chakra-ui/react";
 import React from "react";
 import Showcase from "./Showcase";
 import Categories from "./Categories";
-import Cards from "../../partials/Cards.jsx";
+// import Cards from "../../partials/Cards.jsx";
 
 function Home() {
   return (
@@ -24,7 +24,7 @@ function Home() {
       </Container>
       <hr />
       <Container maxW="1200px" mx="auto" my="0">
-        <Cards />
+        {/* <Cards /> */}
       </Container>
     </>
   );
