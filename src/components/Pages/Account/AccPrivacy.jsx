@@ -1,7 +1,7 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import EditableInput from "src/components/Partials/EditableInput.jsx";
+import EditableInput from "../../partials/EditableInput";
 
 function AccPrivacy() {
   const [inputValue, setInputValue] = useState("Initial Value");
@@ -10,7 +10,7 @@ function AccPrivacy() {
     setInputValue(newValue);
   };
   return (
-    <>
+    <>wd 
       <Flex mb="2rem">
         <NavLink to="/">
           <Text
