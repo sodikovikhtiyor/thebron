@@ -2,8 +2,8 @@ import { Container } from "@chakra-ui/react";
 import React from "react";
 import Showcase from "./Showcase";
 import Categories from "./Categories";
-import Cards from "../../Partials/Cards.jsx";
-import Filter from "../../Search/Filter.jsx";
+import Cards from "../../Partials/Cards";
+import Filter from "../../Search/Filter";
 
 function Home() {
   return (
