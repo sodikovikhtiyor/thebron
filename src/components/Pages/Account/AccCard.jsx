@@ -10,8 +10,9 @@ function AccCard({ icon, title, text }) {
         flexDir="column"
         py="20px"
         px="16px"
-        h="220px"
-        w="390px"
+        h={{base: '190px',md:"220px"}}
+        w="350px"
+        gap='15px'
       >
         <Image src={icon} w="48px" />
         <Box>

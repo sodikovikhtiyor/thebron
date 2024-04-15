@@ -10,8 +10,8 @@ function AccPrivacy() {
     setInputValue(newValue);
   };
   return (
-    <>wd 
-      <Flex mb="2rem">
+    <> 
+      <Flex mb="2rem" alignItems='end'>
         <NavLink to="/">
           <Text
             p="10px"

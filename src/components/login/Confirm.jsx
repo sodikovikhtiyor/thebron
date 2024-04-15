@@ -46,7 +46,7 @@ function Confirm({ isConOpen, onConfirmClose }) {
               <Flex
                 flexDir="column"
                 gap="12px"
-                w="450px"
+                maxW={{ base: "350px", sm: "400px", md: "100%" }}
                 // borderRadius="20px"
                 // boxShadow="0px 8px 16px 0px #00000014"
                 // py="28px"

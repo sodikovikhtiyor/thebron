@@ -4,7 +4,7 @@ import LanguageIcon from "@mui/icons-material/Language";
 import twitter from "../../assets/thebron-icons/Feather Icons/twitter.png";
 import facebook from "../../assets/thebron-icons/Feather Icons/facebook.png";
 import instagram from "../../assets/thebron-icons/Feather Icons/instagram.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 function Footer() {
   return (
     <Flex
@@ -28,7 +28,7 @@ function Footer() {
         flexWrap="wrap"
       >
         <Text>2024, thebron</Text>
-        <Text>Конфиденцальность</Text>
+        <Text><NavLink to='/account/in'>Конфиденцальность</NavLink></Text>
         <Text>Условия</Text>
         <Text>Реквезиты</Text>
       </Flex>

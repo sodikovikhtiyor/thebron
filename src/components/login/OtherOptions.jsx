@@ -23,7 +23,7 @@ function OtherOptions({ isOptOpen, onOptionClose }) {
       {isOptionOpen && (
         <div className="modal-overlay">
           <Box className="modal" onClick={(e) => e.stopPropagation()} p="2rem">
-            <Flex flexDir="column" gap="12px" w="450px">
+            <Flex flexDir="column" gap="12px" maxW={{ base: "350px", sm: "400px", md: "100%" }}>
               <Flex justify="space-between" alignItems="center" mb="1rem">
                 <ArrowBackIcon
                   style={{ fontSize: "1.4rem" }}

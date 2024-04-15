@@ -65,7 +65,12 @@ const Login = ({ isOpen, onClose }) => {
     <>
       {isModalOpen && (
         <div className="modal-overlay" onClick={handleClose}>
-          <Box className="modal" onClick={(e) => e.stopPropagation()} p="2rem">
+          <Box
+            maxW={{ base: "350px", sm: "400px", md: "100%" }}
+            className="modal"
+            onClick={(e) => e.stopPropagation()}
+            p="2rem"
+          >
             {/* <button className="close-button" onClick={handleClose}>
               X
             </button> */}
@@ -74,7 +79,7 @@ const Login = ({ isOpen, onClose }) => {
                 // border="1px solid #C2C2C2"
                 flexDir="column"
                 gap="12px"
-                w="450px"
+                maxW={{ base: "100%", md: "400px" }}
               >
                 {/* <Box
                   onClick={handleClose}
@@ -112,16 +117,15 @@ const Login = ({ isOpen, onClose }) => {
                   />
                 </Box>
                 <Text fontSize="14px" fontWeight="400" color="#454545">
-                  Horem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                  vulputate libero et velit interdum, ac aliquet odio mattis.
+                  Мы позвоним вам или отправим SMS, чтобы подтвердить номер
+                  телефона. Применяются стандартные условия вашего тарифа на
+                  прием сообщений и передачу данных. Политика конфиденциальности
                 </Text>
                 <Button
                   w="100%"
                   bg="#03559E"
                   borderRadius="10px"
                   color="#fff"
-                  // isOpen={isModalOpen}
-                  // onClose={closeModal}
                   onClick={openConfirm}
                 >
                   Продолжить
@@ -136,60 +140,87 @@ const Login = ({ isOpen, onClose }) => {
                   <hr width="300px" />
                 </Flex>
                 <Flex
-                  as="button"
-                  justifyContent="start"
-                  gap="6rem"
-                  w="100%"
-                  border="1px solid #0A0A0A"
-                  borderRadius="8px"
-                  bg="#fff"
-                   py="10px"
-                    px="28.8px"
+                  justify={{ base: "space-around", md: "center" }}
+                  flexDir={{ base: "row", md: "column" }}
+                  gap={{base: '0', md: '1rem'}}
                 >
-                  <Image src={email} />
-                  <Text fontWeight="700">C помощью эл почты</Text>
-                </Flex>
-                <Flex
-                  as="button"
-                  justifyContent="start"
-                  gap="6rem"
-                  w="100%"
-                  border="1px solid #0A0A0A"
-                  borderRadius="8px"
-                  bg="#fff"
-                   py="10px"
-                    px="28.8px"
-                >
-                  <Image src={google} />
-                  <Text fontWeight="700">C помощью эл почты</Text>
-                </Flex>
-                <Flex
-                  as="button"
-                  justifyContent="start"
-                  gap="6rem"
-                  w="100%"
-                  border="1px solid #0A0A0A"
-                  borderRadius="8px"
-                  bg="#fff"
-                   py="10px"
-                    px="28.8px"
-                >
-                  <Image src={facebook} />
-                  <Text fontWeight="700">C помощью эл почты</Text>
-                </Flex>
-                <Flex
-                  as="button"
-                  justifyContent="start"
-                  gap="6rem"
-                  w="100%"
-                  border="1px solid #0A0A0A"
-                  borderRadius="8px"
-                  bg="#fff"
-                   py="10px"
-                    px="28.8px"
-                >
-                  <Image src={apple} />
-                  <Text fontWeight="700">C помощью эл почты</Text>
+                  <Flex
+                    as="button"
+                    justifyContent={{ base: "center", md: "start" }}
+                    gap={{ base: "0", md: "4rem" }}
+                    w={{ base: "50px", md: "100%" }}
+                    border="1px solid #0A0A0A"
+                    borderRadius="8px"
+                    bg="#fff"
+                    py={{ base: "10px", md: "10px" }}
+                    px={{ base: "0", md: "28.8px" }}
+                  >
+                    <Image src={email} />
+                    <Text
+                      display={{ base: "none", md: "inline-block" }}
+                      fontWeight="700"
+                    >
+                      C помощью эл почты
+                    </Text>
+                  </Flex>
+
+                  <Flex
+                    as="button"
+                    justifyContent={{ base: "center", md: "start" }}
+                    gap={{ base: "0", md: "4rem" }}
+                    w={{ base: "50px", md: "100%" }}
+                    border="1px solid #0A0A0A"
+                    borderRadius="8px"
+                    bg="#fff"
+                    py={{ base: "10px", md: "10px" }}
+                    px={{ base: "0", md: "28.8px" }}
+                  >
+                    <Image src={google} />
+                    <Text
+                      display={{ base: "none", md: "inline-block" }}
+                      fontWeight="700"
+                    >
+                      C помощью эл почты
+                    </Text>
+                  </Flex>
+                  <Flex
+                    as="button"
+                    justifyContent={{ base: "center", md: "start" }}
+                    gap={{ base: "0", md: "4rem" }}
+                    w={{ base: "50px", md: "100%" }}
+                    border="1px solid #0A0A0A"
+                    borderRadius="8px"
+                    bg="#fff"
+                    py={{ base: "10px", md: "10px" }}
+                    px={{ base: "0", md: "28.8px" }}
+                  >
+                    <Image src={facebook} />
+                    <Text
+                      display={{ base: "none", md: "inline-block" }}
+                      fontWeight="700"
+                    >
+                      C помощью эл почты
+                    </Text>
+                  </Flex>
+                  <Flex
+                    as="button"
+                    justifyContent={{ base: "center", md: "start" }}
+                    gap={{ base: "0", md: "4rem" }}
+                    w={{ base: "50px", md: "100%" }}
+                    border="1px solid #0A0A0A"
+                    borderRadius="8px"
+                    bg="#fff"
+                    py={{ base: "10px", md: "10px" }}
+                    px={{ base: "0", md: "28.8px" }}
+                  >
+                    <Image src={apple} />
+                    <Text
+                      display={{ base: "none", md: "inline-block" }}
+                      fontWeight="700"
+                    >
+                      C помощью эл почты
+                    </Text>
+                  </Flex>
                 </Flex>
               </Flex>
             </div>

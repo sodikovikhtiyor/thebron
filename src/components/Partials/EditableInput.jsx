@@ -27,8 +27,9 @@ const EditableInput = ({
           w={{ sm: "600px", md: "750px" }}
           py="1rem"
           borderBottom="1px solid #e0e0e0"
+          alignItems={{base: 'center', md: 'top'}}
         >
-          <Box w="700px">
+          <Box maxW={{ base: "350px", sm: "400px", md: "700px" }}>
             <Text fontWeight="500" fontSize="18px">
               {title}
             </Text>
@@ -39,7 +40,7 @@ const EditableInput = ({
               autoFocus
               _focusVisible="none"
               py="10px"
-              w="100%"
+              maxW={{ base: "300px", sm: "400px", md: "100%" }}
               color="#000"
               border="1px solid #000"
               borderRadius="8px"
@@ -55,13 +56,14 @@ const EditableInput = ({
           w={{ base: "100%", sm: "100%", md: "100%" }}
           borderBottom="1px solid #e0e0e0"
           py="1rem"
+          alignItems={{base: 'center', md: 'top'}}
         >
           <Box w="700px">
             <Text fontWeight="500" fontSize="18px">
               {title}
             </Text>
             <Input
-              w="100%"
+              maxW={{ base: "350px", sm: "400px", md: "100%" }}
               // placeholder={value}
               value={value}
               isReadOnly
