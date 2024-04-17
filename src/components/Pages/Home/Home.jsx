@@ -1,13 +1,16 @@
-import { Container } from "@chakra-ui/react";
+import { Box, Container } from "@chakra-ui/react";
 import React from "react";
 import Showcase from "./Showcase";
 import Categories from "./Categories";
 import Cards from "../../Partials/Cards";
-import Filter from "../../Search/Filter";
+import Search from "../../Search/Search";
 
 function Home() {
   return (
     <>
+      <Box display={{ base: "block", md: "none" }}>
+        <Search />
+      </Box>
       <Container
         maxW={{
           base: "500px",
@@ -24,7 +27,9 @@ function Home() {
       </Container>
       <hr />
       <Container maxW="1200px" mx="auto" my="0">
-        <Filter />
+        <Box display={{ base: "none", md: "block" }}>
+          <Search />
+        </Box>
         <Cards />
       </Container>
     </>

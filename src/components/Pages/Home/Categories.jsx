@@ -108,26 +108,7 @@ function Categories() {
       >
         Все
       </Flex>
-      <Box
-        px={{ base: "10px", md: "16px" }}
-        borderRadius="8px"
-        as="button"
-        h="40px"
-        display="flex"
-        alignItems="center"
-        color="#454545"
-        border="2px solid #454545"
-        _hover={{
-          color: "#000",
-          border: "2px solid #000",
-          fontWeight: "700",
-        }}
-      >
-        <Text mr="10px" display={{ base: "none", lg: "inline-block" }}>
-          Фильтр
-        </Text>
-        <Image src={filter} alt="filterimg" minW="24px" />
-      </Box>
+
       <Box
         maxW={{
           // base: "250px",
@@ -151,6 +132,26 @@ function Categories() {
           <Category name="Санатория" icon={hotel} />
           <Category name="Кино" icon={house} />
         </Carousel>
+      </Box>
+      <Box
+        px={{ base: "10px", md: "16px" }}
+        borderRadius="8px"
+        as="button"
+        h="40px"
+        display={{ base: "none", md: "flex" }}
+        alignItems="center"
+        color="#454545"
+        border="2px solid #454545"
+        _hover={{
+          color: "#000",
+          border: "2px solid #000",
+          fontWeight: "700",
+        }}
+      >
+        <Text mr="10px" display={{ base: "none", lg: "inline-block" }}>
+          Фильтр
+        </Text>
+        <Image src={filter} alt="filterimg" minW="24px" />
       </Box>
     </Flex>
   );

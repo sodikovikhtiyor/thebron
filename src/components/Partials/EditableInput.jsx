@@ -24,12 +24,12 @@ const EditableInput = ({
       {isEditing ? (
         <Flex
           justify="space-between"
-          w={{ sm: "600px", md: "750px" }}
+          w={{ sm: "600px", md: "100%" }}
           py="1rem"
           borderBottom="1px solid #e0e0e0"
-          alignItems={{base: 'center', md: 'top'}}
+          alignItems={{ base: "center", md: "top" }}
         >
-          <Box maxW={{ base: "350px", sm: "400px", md: "700px" }}>
+          <Box maxW="100%">
             <Text fontWeight="500" fontSize="18px">
               {title}
             </Text>
@@ -40,7 +40,8 @@ const EditableInput = ({
               autoFocus
               _focusVisible="none"
               py="10px"
-              maxW={{ base: "300px", sm: "400px", md: "100%" }}
+              w="100%"
+              // maxW={{ base: "300px", sm: "400px", md: "100%" }}
               color="#000"
               border="1px solid #000"
               borderRadius="8px"
@@ -53,18 +54,17 @@ const EditableInput = ({
       ) : (
         <Flex
           justify="space-between"
-          w={{ base: "100%", sm: "100%", md: "100%" }}
+          w={{ sm: "600px", md: "100%" }}
           borderBottom="1px solid #e0e0e0"
           py="1rem"
-          alignItems={{base: 'center', md: 'top'}}
+          alignItems={{ base: "center", md: "top" }}
         >
-          <Box w="700px">
+          <Box maxW={{ base: "350px", sm: "400px", md: "700px" }}>
             <Text fontWeight="500" fontSize="18px">
               {title}
             </Text>
             <Input
-              maxW={{ base: "350px", sm: "400px", md: "100%" }}
-              // placeholder={value}
+              w="100%"
               value={value}
               isReadOnly
               py="10px"

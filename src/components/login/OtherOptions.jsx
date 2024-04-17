@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { ArrowBackIcon, CloseIcon } from "@chakra-ui/icons";
 import OtherOption from "./OtherOption";
 import messageIcon from "../../assets/thebron-icons/Feather Icons/message-square.png";
-import telegramLogo from "../../assets/thebron-icons/Phosphor Icons/TelegramLogo.png";
 import phoneOutgoing from "../../assets/thebron-icons/Phosphor Icons/PhoneOutgoing.png";
 function OtherOptions({ isOptOpen, onOptionClose }) {
   const [isOptionOpen, setIsOptOpen] = useState(isOptOpen);
@@ -38,12 +37,7 @@ function OtherOptions({ isOptOpen, onOptionClose }) {
                 name="SMS"
                 text="Мы отпрвим вам код"
               />
-              <OtherOption
-                className={borderBottomStyle}
-                icon={telegramLogo}
-                name="Telegram"
-                text="Мы отправим вам код во Wi-Fi"
-              />
+              
               <OtherOption
                 icon={phoneOutgoing}
                 name="Телефонный звонок"

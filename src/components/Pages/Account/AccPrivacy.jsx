@@ -1,7 +1,8 @@
-import {  Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex, Heading, Image, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import EditableInput from "../../Partials/EditableInput";
+import arrow from "../../../assets/thebron-icons/Phosphor Icons/CaretRight.png";
 
 function AccPrivacy() {
   const [inputValue, setInputValue] = useState("Initial Value");
@@ -10,10 +11,18 @@ function AccPrivacy() {
     setInputValue(newValue);
   };
   return (
-    <> 
-      <Flex mb="2rem" alignItems='end'>
+    <>
+      <Flex mb="2rem"  flexDir='column' gap='10px'>
+        <Flex gap="10px" alignItems="center">
+          <NavLink to="/account/in">
+            <Text as="b">Аккаунт</Text>
+          </NavLink>
+          <Image src={arrow} w="24px" />
+          <Text as="b">Вход и безопасность</Text>
+        </Flex>
         <NavLink to="/">
           <Text
+          display='inline-block'
             p="10px"
             pe="20px"
             color="#03559E"
@@ -22,7 +31,7 @@ function AccPrivacy() {
             Войти
           </Text>
         </NavLink>
-        <NavLink>
+        {/* <NavLink>
           <Text
             p="10px"
             pe="20px"
@@ -37,8 +46,8 @@ function AccPrivacy() {
           >
             Запросы на вход
           </Text>
-        </NavLink>
-        <NavLink>
+        </NavLink> */}
+        {/* <NavLink>
           <Text
             fontWeight="700"
             p="10px"
@@ -53,7 +62,7 @@ function AccPrivacy() {
           >
             Совместный доступ
           </Text>
-        </NavLink>
+        </NavLink> */}
       </Flex>
       <Heading mt="2rem" fontSize="28px">
         Вход

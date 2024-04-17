@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Image, Text } from "@chakra-ui/react";
+import { Flex, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import LanguageIcon from "@mui/icons-material/Language";
 import twitter from "../../assets/thebron-icons/Feather Icons/twitter.png";
@@ -17,7 +17,7 @@ function Footer() {
       bg="#F7F7F7"
       flexWrap="wrap"
       // bottom="0"
-      // w="100%"
+      w="100%"
       // pos="static"
     >
       <Flex

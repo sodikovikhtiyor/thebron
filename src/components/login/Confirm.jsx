@@ -38,7 +38,7 @@ function Confirm({ isConOpen, onConfirmClose }) {
     <>
       {isConfirmOpen && (
         <div className="modal-overlay">
-          <Box className="modal" onClick={(e) => e.stopPropagation()} p="2rem">
+          <Box className="modal" maxW={{ base: "350px", sm: "400px", md: "100%" }} onClick={(e) => e.stopPropagation()} p="2rem">
             {/* <button className="close-button" onClick={handleClose}>
             X
           </button> */}

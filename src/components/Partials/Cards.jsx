@@ -3,6 +3,7 @@ import Card from "./Card";
 import img1 from "../../assets/images/image1.png";
 import map from "../../assets/thebron-icons/Feather Icons/map.png";
 import { Button, Flex, Image, Text } from "@chakra-ui/react";
+import { NavLink } from "react-router-dom";
 
 function Cards() {
   return (
@@ -14,14 +15,16 @@ function Cards() {
         flexWrap="wrap"
         justifyContent={{ base: "center", md: "space-between" }}
       >
-        <Card
-          img={img1}
-          name="Отель Узбекистан"
-          rate="4.6"
-          distance="2.8"
-          date="10-12"
-          price="125 000"
-        />
+        <NavLink to="place">
+          <Card
+            img={img1}
+            name="Отель Узбекистан"
+            rate="4.6"
+            distance="2.8"
+            date="10-12"
+            price="125 000"
+          />
+        </NavLink>
         <Card
           img={img1}
           name="Отель Узбекистан"
@@ -155,10 +158,13 @@ function Cards() {
           Показать больше
         </Button>
       </Flex>
-      <Text fontWeight="700" fontSize="28px" mt='1.5rem' mb="1rem" color="#000">
+      <Text fontWeight="700" fontSize="28px" mt="1.5rem" mb="1rem" color="#000">
         Акции
       </Text>
-      <Flex flexWrap="wrap" justifyContent={{ base: "center", md: "space-between" }}>
+      <Flex
+        flexWrap="wrap"
+        justifyContent={{ base: "center", md: "space-between" }}
+      >
         <Card
           img={img1}
           name="Отель Узбекистан"

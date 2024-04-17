@@ -6,7 +6,7 @@ import AccCardImg from "../../../assets/images/AccCard.png";
 
 function Account() {
   return (
-    <Box >
+    <Box h='70vh'>
       <Heading>Аккаунт</Heading>
       <Flex flexDir="column" gap="4rem" mt="10px" flexWrap="wrap">
         <Text>

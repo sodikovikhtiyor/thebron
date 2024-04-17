@@ -19,7 +19,7 @@ function Header() {
   return (
     <Flex flexWrap="wrap" justifyContent="space-between" py="30px">
       <NavLink to="/">
-        <Image src={logo} alt="logo" w={{ base: "100px", md: "130px" }} />
+        <Image src={logo} alt="logo"  />
       </NavLink>
       <Flex w="170px" align="center" justifyContent="space-between">
         <Flex align="center">
