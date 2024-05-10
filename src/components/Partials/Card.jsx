@@ -45,7 +45,7 @@ function Card({ img, name, rate, distance, date, price }) {
     },
   };
   return (
-    <Flex flexDirection="column" w="270px" gap="10px" color="#000" mb="3rem">
+    <Flex flexDirection="column" w="340px"  color="#000" mb="3rem">
       <Carousel {...params}>
         <Image src={img} w="100%" />
         <Image src={img} w="100%" />

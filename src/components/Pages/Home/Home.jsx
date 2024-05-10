@@ -18,6 +18,7 @@ function Home() {
           md: "750px",
           lg: "900px",
           xl: "1200px",
+          '2xl': '1920px'
         }}
         mx="auto"
         my="0"
@@ -26,11 +27,12 @@ function Home() {
         <Categories />
       </Container>
       <hr />
-      <Container maxW="1200px" mx="auto" my="0">
+      <Container maxW="1920px" mx="auto" my="0">
         <Box display={{ base: "none", md: "block" }}>
           <Search />
         </Box>
         <Cards />
+        
       </Container>
     </>
   );

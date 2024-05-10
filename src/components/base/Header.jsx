@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../assets/images//Logo.png";
+import logo from "../../assets/images/Logo.svg";
 import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
 import LanguageIcon from "@mui/icons-material/Language";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -26,9 +26,6 @@ function Header() {
           <LanguageIcon />
           <p>ru</p>
         </Flex>
-        {/* <Button bg="#efefef" onClick={clickHandle}>
-          Login
-        </Button> */}
         <Box>
           <Button onClick={openModal}>Login</Button>
           <Login isOpen={isModalOpen} onClose={closeModal} />

@@ -16,9 +16,9 @@ function Search() {
       boxShadow="0px 8px 16px 0px #00000014"
       justifyContent="space-between"
       alignItems="center"
-      maxW="800px"
+      maxW="810px"
       mx="auto"
-      my={{ base: "2rem", md: "4rem" }}
+      my={{ base: "2rem", md: "60px" }}
       color="black"
       cursor="pointer"
     >
@@ -52,7 +52,7 @@ function Search() {
           bg="#03559E"
           onClick={handleSearch}
         >
-          <Image src={searchIcon} />
+          <Image src={searchIcon}  />
         </Button>
         <Box
           px={{ base: "10px", md: "16px" }}

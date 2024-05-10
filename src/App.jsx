@@ -20,6 +20,7 @@ function App() {
           md: "750px",
           lg: "900px",
           xl: "1200px",
+          '2xl': '1920px'
         }}
         mx="auto"
         my="0"

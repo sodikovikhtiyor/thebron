@@ -10,45 +10,40 @@ import house from "../../../assets/thebron-icons/house-chimney.png";
 import filter from "../../../assets/thebron-icons/filter.png";
 import teapot from "../../../assets/thebron-icons/chayxona.png";
 import mountain from "../../../assets/thebron-icons/mountain-city.png";
+import videoCameraAlt from "../../../assets/thebron-icons/video-camera-alt.png";
 import Carousel from "nuka-carousel";
 import "./Category.css";
 function Category({ name, icon }) {
   return (
-    <Box
+    <Flex
       cursor="pointer"
-      color="#03559E;"
-      display="flex"
+      color="#03559E"
       alignItems="center"
+      justifyContent="center"
       bg="#DBF2F8"
       py="8px"
       px="16px"
       borderRadius="10px"
-      h={{ base: "40px", md: "48px" }}
+      h="40px"
       me="10px"
-      maxW="135px"
-      // maxW={{
-      //   base: "135px",
-      //   sm: "135px",
-      //   md: "750px",
-      //   lg: "900px",
-      //   xl: "1200px",
-      // }}
     >
       <Image src={icon} alt="icon" mr="5px" w="20px" />
       <Text
-        _hover={{ color: "blue", fontWeight: "700" }}
-        fontSize={{ base: "14px", md: "16px" }}
+        _hover={{ color: "blue", fontWeight: "500" }}
+        fontSize={{ base: "16px", md: "18px" }}
       >
         {name}
       </Text>
-    </Box>
+    </Flex>
   );
 }
 function Categories() {
   let viewportWidth = document.documentElement.clientWidth;
   // const slidesNum = viewportWidth < "700" ? "4" : "8";
   let slidesNum;
-  if (viewportWidth >= "1280") {
+  if (viewportWidth >= "1500") {
+    slidesNum = 9;
+  } else if (viewportWidth >= "1440") {
     slidesNum = 6.2;
   } else if (viewportWidth >= "1280") {
     slidesNum = 5.2;
@@ -95,6 +90,7 @@ function Categories() {
         md: "800px",
         lg: "900px",
         xl: "1200px",
+        "2xl": "1920px",
       }}
       // overflow="hidden"
     >
@@ -116,7 +112,7 @@ function Categories() {
           md: "500px",
           lg: "600px",
           xl: "900px",
-          // "2xl": "900px",
+          "2xl": "1280px",
         }}
         className="categoryBox"
       >
@@ -124,29 +120,31 @@ function Categories() {
           <Category name="Отель" icon={hotel} />
           <Category name="Чайхана" icon={teapot} />
           <Category name="Самолет" icon={plane} />
-          <Category name="Game club" icon={gamepad} />
+          <Category name="Gameclub" icon={gamepad} />
           <Category name="Ресторан" icon={restaurant} />
           <Category name="Поезд" icon={train} />
           <Category name="Лагерь" icon={school} />
-          <Category name="Дача" icon={mountain} />
-          <Category name="Санатория" icon={hotel} />
-          <Category name="Кино" icon={house} />
+          <Category name="Дача" icon={house} />
+          <Category name="Санатория" icon={mountain} />
+          <Category name="Кино" icon={videoCameraAlt} />
         </Carousel>
       </Box>
       <Box
         px={{ base: "10px", md: "16px" }}
-        borderRadius="8px"
+        borderRadius="10px"
         as="button"
         h="40px"
         display={{ base: "none", md: "flex" }}
         alignItems="center"
         color="#454545"
-        border="2px solid #454545"
+        border="1px solid var(--Grey-01-90, #454545)"
         _hover={{
-          color: "#000",
-          border: "2px solid #000",
+          transition: ".1s ease-in-out",
+          color: "#888",
+          border: "2px solid #888",
           fontWeight: "700",
         }}
+        box-shadow="0px 8px 16px 0px rgba(0, 0, 0, 0.08)"
       >
         <Text mr="10px" display={{ base: "none", lg: "inline-block" }}>
           Фильтр
