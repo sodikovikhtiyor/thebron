@@ -8,6 +8,7 @@ import {
   Flex,
   Heading,
   Image,
+  Input,
   Text,
 } from "@chakra-ui/react";
 import facebook from "../../assets/thebron-icons/Socials/facebook.png";
@@ -27,19 +28,21 @@ const Login = ({ isOpen, onClose }) => {
   const [isModalOpen, setIsModalOpen] = useState(isOpen);
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
   const [value, setValue] = useState("");
   const [error, setError] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(phoneNumber);
+    console.log(email);
     try {
       const response = await axios.post(
         "https://back.thebron.uz/account/register/",
         {
-          email: "ikhtiyor@gmail.com",
           first_name: "string",
           last_name: "string",
           phone_number: "+" + phoneNumber,
+          email: email,
           password: "string",
           password2: "string",
         }
@@ -151,10 +154,10 @@ const Login = ({ isOpen, onClose }) => {
                 <Text textAlign="center">Войдите или зарегистрируйтесь</Text>
                 <Box>
                   <form onSubmit={handleSubmit}>
-                    <Flex>
+                    <Flex flexDir="column">
                       <PhoneInput
-                        value={phoneNumber}
                         country={"uz"}
+                        value={phoneNumber}
                         onChange={setPhoneNumber}
                         placeholder="Enter Phone Number"
                         containerStyle={{
@@ -172,9 +175,19 @@ const Login = ({ isOpen, onClose }) => {
                           fontWeight: "bold",
                         }}
                       />
+
+                      <Input
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        type="email"
+                        w="100%"
+                        mt="10px"
+                        placeholder="Эл. почта"
+                      />
                       <div id="recaptcha-container" />
                       {error && <Alert variant="danger">{error}</Alert>}
                     </Flex>
+
                     <Text
                       fontSize="14px"
                       fontWeight="400"
