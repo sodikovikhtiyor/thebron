@@ -22,12 +22,36 @@ import {
   signInWithPhoneNumber,
 } from "firebase/auth";
 import "./Modal.css";
+import axios from "axios";
 const Login = ({ isOpen, onClose }) => {
   const [isModalOpen, setIsModalOpen] = useState(isOpen);
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [value, setValue] = useState("");
   const [error, setError] = useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(phoneNumber);
+    try {
+      const response = await axios.post(
+        "https://back.thebron.uz/account/register/",
+        {
+          email: "ikhtiyor@gmail.com",
+          first_name: "string",
+          last_name: "string",
+          phone_number: "+" + phoneNumber,
+          password: "string",
+          password2: "string",
+        }
+      );
+
+      console.log("Registration successful:", response.data);
+      // Handle success (e.g., show success message or redirect)
+    } catch (error) {
+      console.error("Registration failed:", error.response.data);
+      // Handle error (e.g., show error message)
+    }
+  };
   useEffect(() => {
     setIsModalOpen(isOpen);
     setValue(localStorage.getItem("email"));
@@ -82,29 +106,29 @@ const Login = ({ isOpen, onClose }) => {
       });
     handleClose();
   };
-  function setUpRecaptha() {
-    const recaptchaVerifier = new RecaptchaVerifier(
-      "recaptcha-container",
-      {},
-      auth
-    );
-    recaptchaVerifier.render();
-    return signInWithPhoneNumber(auth, phoneNumber, recaptchaVerifier);
-  }
-  const sendOtp = async (e) => {
-    e.preventDefault();
-    console.log(phoneNumber);
-    setError("");
-    if (phoneNumber === "" || phoneNumber === undefined)
-      return setError("Please enter a valid phone number!");
-    try {
-      const response = await setUpRecaptha(phoneNumber);
-      setResult(response);
-      setFlag(true);
-    } catch (err) {
-      setError(err.message);
-    }
-  };
+  // function setUpRecaptha() {
+  //   const recaptchaVerifier = new RecaptchaVerifier(
+  //     "recaptcha-container",
+  //     {},
+  //     auth
+  //   );
+  //   recaptchaVerifier.render();
+  //   return signInWithPhoneNumber(auth, phoneNumber, recaptchaVerifier);
+  // }
+  // const sendOtp = async (e) => {
+  //   e.preventDefault();
+  //   console.log(phoneNumber);
+  //   setError("");
+  //   if (phoneNumber === "" || phoneNumber === undefined)
+  //     return setError("Please enter a valid phone number!");
+  //   try {
+  //     const response = await setUpRecaptha(phoneNumber);
+  //     setResult(response);
+  //     setFlag(true);
+  //   } catch (err) {
+  //     setError(err.message);
+  //   }
+  // };
   return (
     <>
       {isModalOpen && (
@@ -126,7 +150,7 @@ const Login = ({ isOpen, onClose }) => {
                 </Heading>
                 <Text textAlign="center">Войдите или зарегистрируйтесь</Text>
                 <Box>
-                  <form>
+                  <form onSubmit={handleSubmit}>
                     <Flex>
                       <PhoneInput
                         value={phoneNumber}
@@ -168,7 +192,7 @@ const Login = ({ isOpen, onClose }) => {
                       borderRadius="10px"
                       color="#fff"
                       type="submit"
-                      onClick={sendOtp}
+                      onClick={openConfirm}
                     >
                       Продолжить
                     </Button>
