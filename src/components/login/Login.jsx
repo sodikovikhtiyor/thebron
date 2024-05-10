@@ -24,6 +24,7 @@ import {
 } from "firebase/auth";
 import "./Modal.css";
 import axios from "axios";
+import { SdCardAlert } from "@mui/icons-material";
 const Login = ({ isOpen, onClose }) => {
   const [isModalOpen, setIsModalOpen] = useState(isOpen);
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
@@ -49,9 +50,12 @@ const Login = ({ isOpen, onClose }) => {
       );
 
       console.log("Registration successful:", response.data);
+      setIsConfirmOpen(true);
       // Handle success (e.g., show success message or redirect)
     } catch (error) {
-      console.error("Registration failed:", error.response.data);
+      console.error("Registration failed:", error.response.data.email[0]);
+      alert(error.response.data.email[0]);
+      setIsConfirmOpen(false);
       // Handle error (e.g., show error message)
     }
   };
@@ -79,15 +83,15 @@ const Login = ({ isOpen, onClose }) => {
     }
   };
 
-  function openConfirm() {
-    // handleClose();
-    console.log(phoneNumber);
-    if (phoneNumber.length > 4) {
-      setIsConfirmOpen(true);
-    } else {
-      alert("Enter phone number!");
-    }
-  }
+  // function openConfirm() {
+  //   // handleClose();
+  //   console.log(phoneNumber);
+  //   if (phoneNumber.length > 4) {
+  //     setIsConfirmOpen(true);
+  //   } else {
+  //     alert("Enter phone number!");
+  //   }
+  // }
   const closeConfirmModal = () => {
     setIsConfirmOpen(false);
   };
@@ -205,7 +209,7 @@ const Login = ({ isOpen, onClose }) => {
                       borderRadius="10px"
                       color="#fff"
                       type="submit"
-                      onClick={openConfirm}
+                      // onClick={openConfirm}
                     >
                       Продолжить
                     </Button>
