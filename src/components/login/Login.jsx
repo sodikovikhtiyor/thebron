@@ -10,32 +10,27 @@ import {
   Image,
   Input,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import facebook from "../../assets/thebron-icons/Socials/facebook.png";
 import google from "../../assets/thebron-icons/Socials/google.png";
 import apple from "../../assets/thebron-icons/Socials/apple.png";
 import Confirm from "./Confirm";
 import { auth, provider } from "./Config";
-import {
-  signInWithPopup,
-  FacebookAuthProvider,
-  RecaptchaVerifier,
-  signInWithPhoneNumber,
-} from "firebase/auth";
+import { signInWithRedirect, FacebookAuthProvider } from "firebase/auth";
 import "./Modal.css";
 import axios from "axios";
-import { SdCardAlert } from "@mui/icons-material";
 const Login = ({ isOpen, onClose }) => {
   const [isModalOpen, setIsModalOpen] = useState(isOpen);
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [value, setValue] = useState("");
-  const [error, setError] = useState("");
+  const toast = useToast();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(phoneNumber);
-    console.log(email);
+
     try {
       const response = await axios.post(
         "https://back.thebron.uz/account/register/",
@@ -48,15 +43,23 @@ const Login = ({ isOpen, onClose }) => {
           password2: "string",
         }
       );
-
-      console.log("Registration successful:", response.data);
+      // console.log("Registration successful:", response.data);
+      toast({
+        title: "Мы отправили вам КОД подтверждения",
+        status: "info",
+        duration: 4000,
+        isClosable: true,
+      });
       setIsConfirmOpen(true);
-      // Handle success (e.g., show success message or redirect)
     } catch (error) {
       console.error("Registration failed:", error.response.data.email[0]);
-      alert(error.response.data.email[0]);
-      setIsConfirmOpen(false);
-      // Handle error (e.g., show error message)
+      toast({
+        title: `${error.response.data.email[0]}`,
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+      });
+      // setIsConfirmOpen(false);
     }
   };
   useEffect(() => {
@@ -82,21 +85,11 @@ const Login = ({ isOpen, onClose }) => {
       handleClose();
     }
   };
-
-  // function openConfirm() {
-  //   // handleClose();
-  //   console.log(phoneNumber);
-  //   if (phoneNumber.length > 4) {
-  //     setIsConfirmOpen(true);
-  //   } else {
-  //     alert("Enter phone number!");
-  //   }
-  // }
   const closeConfirmModal = () => {
     setIsConfirmOpen(false);
   };
   const signInWithGoogle = () => {
-    signInWithPopup(auth, provider).then((data) => {
+    signInWithRedirect(auth, provider).then((data) => {
       setValue(data.user.email);
       localStorage.setItem("email", data.user.email);
     });
@@ -104,7 +97,7 @@ const Login = ({ isOpen, onClose }) => {
   };
   const signInWithFacebook = () => {
     const fbProvider = new FacebookAuthProvider();
-    signInWithPopup(auth, fbProvider)
+    signInWithRedirect(auth, fbProvider)
       .then((re) => {
         console.log(re);
       })
@@ -113,29 +106,6 @@ const Login = ({ isOpen, onClose }) => {
       });
     handleClose();
   };
-  // function setUpRecaptha() {
-  //   const recaptchaVerifier = new RecaptchaVerifier(
-  //     "recaptcha-container",
-  //     {},
-  //     auth
-  //   );
-  //   recaptchaVerifier.render();
-  //   return signInWithPhoneNumber(auth, phoneNumber, recaptchaVerifier);
-  // }
-  // const sendOtp = async (e) => {
-  //   e.preventDefault();
-  //   console.log(phoneNumber);
-  //   setError("");
-  //   if (phoneNumber === "" || phoneNumber === undefined)
-  //     return setError("Please enter a valid phone number!");
-  //   try {
-  //     const response = await setUpRecaptha(phoneNumber);
-  //     setResult(response);
-  //     setFlag(true);
-  //   } catch (err) {
-  //     setError(err.message);
-  //   }
-  // };
   return (
     <>
       {isModalOpen && (
@@ -159,7 +129,7 @@ const Login = ({ isOpen, onClose }) => {
                 <Box>
                   <form onSubmit={handleSubmit}>
                     <Flex flexDir="column">
-                      <PhoneInput
+                      {/* <PhoneInput
                         country={"uz"}
                         value={phoneNumber}
                         onChange={setPhoneNumber}
@@ -178,7 +148,7 @@ const Login = ({ isOpen, onClose }) => {
                           width: "100%",
                           fontWeight: "bold",
                         }}
-                      />
+                      /> */}
 
                       <Input
                         value={email}
@@ -186,10 +156,12 @@ const Login = ({ isOpen, onClose }) => {
                         type="email"
                         w="100%"
                         mt="10px"
+                        h="64px"
+                        fontSize="16px"
                         placeholder="Эл. почта"
+                        required
                       />
                       <div id="recaptcha-container" />
-                      {error && <Alert variant="danger">{error}</Alert>}
                     </Flex>
 
                     <Text
@@ -219,7 +191,8 @@ const Login = ({ isOpen, onClose }) => {
                 <Confirm
                   isConOpen={isConfirmOpen}
                   onConfirmClose={closeConfirmModal}
-                  userPhNum={"+" + phoneNumber}
+                  // userPhNum={phoneNumber}
+                  userEmail={email}
                 />
                 <Flex justify="space-between" alignItems="center" gap="10px">
                   <hr width="300px" />

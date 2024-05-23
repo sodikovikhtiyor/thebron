@@ -1,15 +1,58 @@
-import { Flex, Box, Text, Heading, Button, Input } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  Text,
+  Heading,
+  Button,
+  Input,
+  useToast,
+} from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { ArrowBackIcon, CloseIcon } from "@chakra-ui/icons";
-// import ConfirmCode from "./ConfirmCode";
 import OtherOptions from "./OtherOptions";
 import OtpInput from "react-otp-input";
+import axios from "axios";
+import LoginEnd from "./LoginEnd";
+import "./Modal.css";
 
-function Confirm({ isConOpen, onConfirmClose, userPhNum }) {
+function Confirm({ isConOpen, onConfirmClose, userEmail }) {
   const [isConfirmOpen, setIsConfirmOpen] = useState(isConOpen);
   const [isOptionOpen, setIsOptOpen] = useState(false);
-  const [user, setUser] = useState(null);
+  const [loginEndOpen, setLoginEndOpen] = useState(false);
   const [otp, setOtp] = useState("");
+  const toast = useToast();
+
+  const verifyOtp = async (e) => {
+    console.log(otp);
+    e.preventDefault();
+    try {
+      const respons = await axios.post(
+        "https://back.thebron.uz/account/verify-email/",
+        {
+          otp: otp,
+        }
+      );
+      console.log("OTP is sent:", respons.data);
+      toast({
+        title: "Код подтверждён!",
+        description: "Пожалуйста закончите регестрацию",
+        status: "success",
+        duration: 4000,
+        isClosable: true,
+      });
+      setLoginEndOpen(true);
+      setIsConfirmOpen(false);
+
+    } catch (error) {
+      console.error("Otp failed:", error);
+      toast({
+        title: `${error}`,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    }
+  };
   useEffect(() => {
     setIsConfirmOpen(isConOpen);
     if (isConfirmOpen) {
@@ -25,6 +68,9 @@ function Confirm({ isConOpen, onConfirmClose, userPhNum }) {
     setIsConfirmOpen(false);
     onConfirmClose();
   };
+  const closeLoginEndModal = () => {
+    setLoginEndOpen(false);
+  };
   const handleKeyDown = (event) => {
     if (event.key === "Escape") {
       handleClose();
@@ -36,20 +82,13 @@ function Confirm({ isConOpen, onConfirmClose, userPhNum }) {
   const closeOptModal = () => {
     setIsOptOpen(false);
   };
-  const verifyOtp = async () => {
-    try {
-      await user.confirm(otp);
-    } catch (err) {
-      console.error(err);
-    }
-  };
   return (
     <>
       {isConfirmOpen && (
         <div className="modal-overlay">
           <Box
             className="modal"
-            maxW={{ base: "350px", sm: "400px", md: "100%" }}
+            maxW={{ base: "350px", sm: "400px", md: "500px" }}
             onClick={(e) => e.stopPropagation()}
             p="2rem"
           >
@@ -69,15 +108,15 @@ function Confirm({ isConOpen, onConfirmClose, userPhNum }) {
                 <Heading>Введите код</Heading>
                 <Text>
                   Для подтверждения телефона отправили 4 значный код на{" "}
-                  <b> {userPhNum}</b>
+                  {/* <b> {userPhNum}</b> */}
+                  <b> {userEmail}</b>
                 </Text>
-                {/* <ConfirmCode /> */}
                 <OtpInput
                   justifyContent="space-between"
                   value={otp}
                   autoFocus
                   onChange={setOtp}
-                  numInputs={5}
+                  numInputs={6}
                   renderSeparator={<span>-</span>}
                   renderInput={(props) => (
                     <Input
@@ -106,6 +145,12 @@ function Confirm({ isConOpen, onConfirmClose, userPhNum }) {
                 >
                   Продолжить
                 </Button>
+                {/* {console.log(userEmail)} */}
+                <LoginEnd
+                  isLogOpen={loginEndOpen}
+                  userGmail={userEmail}
+                  onLoginEndClose={closeLoginEndModal}
+                />
                 <Button
                   onClick={openOptModel}
                   w="100%"

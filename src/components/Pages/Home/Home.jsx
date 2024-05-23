@@ -4,6 +4,7 @@ import Showcase from "./Showcase";
 import Categories from "./Categories";
 import Cards from "../../Partials/Cards";
 import Search from "../../Search/Search";
+import LoginEnd from "../../login/LoginEnd";
 
 function Home() {
   return (
@@ -18,7 +19,7 @@ function Home() {
           md: "750px",
           lg: "900px",
           xl: "1200px",
-          '2xl': '1920px'
+          "2xl": "1920px",
         }}
         mx="auto"
         my="0"
@@ -32,7 +33,6 @@ function Home() {
           <Search />
         </Box>
         <Cards />
-        
       </Container>
     </>
   );

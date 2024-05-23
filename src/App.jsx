@@ -9,7 +9,7 @@ import AccPayment from "./components/Pages/Account/AccPayment";
 import NoMatch from "./components/Pages/NoMatch";
 import Header from "./components/base/Header";
 import Footer from "./components/base/Footer";
-import Place  from "./components/Pages/Place/Place";
+import Place from "./components/Pages/Place/Place";
 function App() {
   return (
     <>
@@ -20,7 +20,7 @@ function App() {
           md: "750px",
           lg: "900px",
           xl: "1200px",
-          '2xl': '1920px'
+          "2xl": "1920px",
         }}
         mx="auto"
         my="0"
@@ -34,11 +34,11 @@ function App() {
             <Route path="payment" element={<AccPayment />} />
             <Route path="privacy" element={<AccPrivacy />} />
           </Route>
-          <Route path='place' element={<Place/>}/>
+          <Route path="place" element={<Place />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
       </Container>
-        <Footer />
+      <Footer />
     </>
   );
   // return (
