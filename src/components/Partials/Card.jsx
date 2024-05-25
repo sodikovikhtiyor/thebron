@@ -57,9 +57,9 @@ function Card({ img, name, rate, distance, date, price }) {
         <Text fontSize="20px" fontWeight="700">
           {name}
         </Text>
-        <Text fontWeight="700">
+        <Flex fontWeight="700" align='center' gap='10px'>
           {rate} <Image src={star} alt="star" />{" "}
-        </Text>
+        </Flex>
       </Flex>
       <Text color="#7B7979">Расстояние: {distance} km от цетра</Text>
       <Text color="#7B7979">{date} марта</Text>
